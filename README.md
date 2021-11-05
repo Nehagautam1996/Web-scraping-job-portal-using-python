@@ -19,7 +19,7 @@ This project enables a user to extract job postings of a job role to store in a 
 3.Chrome webdriver<br /> 
 ## INSTALLATION
 ----------------
-Download and install
+Download and install<br />
 1.chrome webdriver with -https://chromedriver.chromium.org/downloads Additional packages for anaconda distribution <br /> 
 2.Selenium: conda install -c conda-forge selenium <br /> 
 3.bs4 : conda install -c conda-forge bs4 <br /> 
@@ -49,7 +49,7 @@ import pandas as pd<br />
 def get_url(position,page,post):<br /> 
     template='https://www.naukri.com/{}-jobs-{}?k={}'<br /> 
     url=template.format(position,page,post)<br /> 
-    return url
+    return url<br />
 ### Step 3.Use the chromewebdriver, navigate through a page and get job postings with the help of HTML tree on one page. This code scrapes details from 20 pages.
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------
 url=get_url(position,i,post)#pass i for page<br /> 
