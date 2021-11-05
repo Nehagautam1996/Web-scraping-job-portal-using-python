@@ -80,46 +80,46 @@ cards = temp.find_all('article',class_='jobTuple bgWhite br4 mb-8')<br />
 -----------------------------------------------------------------------------------------
 '''
 #company name<br /> 
-comp_a = cards.find('a',class_='subTitle ellipsis fleft')
-#skills required
-Skill=[]
-        sk1 = cards.find(class_='tags has-description')
-        sk2 = sk1.find_all('li',class_='fleft fs12 grey-text lh16 dot')
-        for li in sk2 :
-            li=str(li)
-            li=cleanhtml(li)
-            Skill.append(li)
+comp_a = cards.find('a',class_='subTitle ellipsis fleft')<br /> 
+#skills required<br /> 
+Skill=[]<br /> 
+        sk1 = cards.find(class_='tags has-description')<br /> 
+        sk2 = sk1.find_all('li',class_='fleft fs12 grey-text lh16 dot')<br /> 
+        for li in sk2 :<br /> 
+            li=str(li)<br /> 
+            li=cleanhtml(li)<br /> 
+            Skill.append(li)<br /> 
 '''	    
 ### Step 6.Store all the details in a python dataframe.
 ---------------------------------------------------
 '''
-df = pd.DataFrame(columns=['Company','Description','Experience','Location','Salary','Skills'])
+df = pd.DataFrame(columns=['Company','Description','Experience','Location','Salary','Skills'])<br /> 
 '''
 ### Step 7.Store this dataframe in CSV file, say Scrape_Naukri.csv
 ---------------------------------------------------------------
 '''
-df.to_csv("D:/Scrape_Naukri.csv",index=False)
+df.to_csv("D:/Scrape_Naukri.csv",index=False)<br /> 
 '''
 ### Step 8.flatten dataframe column from 2D to 1D .
 -----------------------------------------------
 '''
-sk_set=df['Skills'].to_list()
-#flatten list(2d to 1d)
-Skills_1d = reduce(lambda z, y :z + y, sk_set)
+sk_set=df['Skills'].to_list()<br /> 
+#flatten list(2d to 1d)<br /> 
+Skills_1d = reduce(lambda z, y :z + y, sk_set)<br /> 
 '''
 ### Step 9. Convert it from list to dictionary using Zip function.Count the frequency of given skills in 20 pages of job posting
 -----------------------------------------------------------------------------------------------------------------------------
 '''
-Skill_count = dict(zip(list(Skills_1d),[list(Skills_1d).count(i) for i in list(Skills_1d)]))
+Skill_count = dict(zip(list(Skills_1d),[list(Skills_1d).count(i) for i in list(Skills_1d)]))<br /> 
 '''
 ### Step 10. Storing this dictionary to a new dataframe S_count
 ------------------------------------------------------------
 '''
-S_count = pd.DataFrame.from_dict(Skill_count , orient ='index')
-print(S_count) #check this new dataframe to print the skill against its frequency in job postings of 20 pages
+S_count = pd.DataFrame.from_dict(Skill_count , orient ='index')<br /> 
+print(S_count) #check this new dataframe to print the skill against its frequency in job postings of 20 pages<br /> 
 '''
 ### Step 11. Store dataframe in a file
 -----------------------------------
 '''
-S_count.to_csv("D:/Skill_count.csv")
+S_count.to_csv("D:/Skill_count.csv")<br /> 
 '''
