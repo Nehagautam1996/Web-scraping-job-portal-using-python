@@ -41,8 +41,7 @@ Chrome webdriver : ChromeDriver 96.0.4664.18
 
 PROCESS
 --------
-Step 1.First import all the required packages
-
+###Step 1.First import all the required packages
 '''
 import csv
 from datetime import datetime
@@ -53,14 +52,14 @@ from selenium import webdriver
 import re
 import pandas as pd
 '''
-Step 2. Get the url for desired job role as per user's input
+###Step 2. Get the url for desired job role as per user's input
 '''
 def get_url(position,page,post):
     template='https://www.naukri.com/{}-jobs-{}?k={}'
     url=template.format(position,page,post)
     return url
 '''
-Step 3.Use the chromewebdriver, navigate through a page and get job postings with the help of HTML tree on one page. This code scrapes details from 20 pages.
+###Step 3.Use the chromewebdriver, navigate through a page and get job postings with the help of HTML tree on one page. This code scrapes details from 20 pages.
 '''
 url=get_url(position,i,post)#pass i for page
 driver = webdriver.Chrome("D:\chromedriver.exe")
@@ -69,12 +68,12 @@ time.sleep(10)
 soup = BeautifulSoup(driver.page_source,'html5lib')
 driver.close()
 '''
-Step 4.Get a job card detail with HTML tree structure.    
+###Step 4.Get a job card detail with HTML tree structure.    
 '''
 temp = soup.find(class_='list')
 cards = temp.find_all('article',class_='jobTuple bgWhite br4 mb-8')
 '''
-Step 5.Use a job card to scrape other attributes of a job, Some of them are listed below.
+###Step 5.Use a job card to scrape other attributes of a job, Some of them are listed below.
 '''
 #company name
 comp_a = cards.find('a',class_='subTitle ellipsis fleft')
@@ -86,16 +85,16 @@ Skill=[]
             li=str(li)
             li=cleanhtml(li)
             Skill.append(li)
-Step 6.Store all the details in a python dataframe.
+###Step 6.Store all the details in a python dataframe.
 '''
 df = pd.DataFrame(columns=['Company','Description','Experience','Location','Salary','Skills'])
 '''
-Step 7.Store this dataframe in CSV file, say Scrape_Naukri.csv
+###Step 7.Store this dataframe in CSV file, say Scrape_Naukri.csv
 '''
 df.to_csv("D:/Scrape_Naukri.csv",index=False)
 '''
 ```
-Step 8. use the dataframe column and first flatten it from 2D to 1D and then convert it from list to a dictionary using Zip function.Count the frequency of given skills in 20 pages of job posting
+###Step 8. use the dataframe column and first flatten it from 2D to 1D and then convert it from list to a dictionary using Zip function.Count the frequency of given skills in 20 pages of job posting
 '''
 sk_set=df['Skills'].to_list()
 
