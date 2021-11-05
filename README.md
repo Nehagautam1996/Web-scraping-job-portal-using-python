@@ -83,7 +83,6 @@ df.to_csv("D:/Scrape_Naukri.csv",index=False)<br />
 ### Step 8.flatten dataframe column from 2D to 1D .
 ---------------------------------------------------
 sk_set=df['Skills'].to_list()<br /> 
-#flatten list(2d to 1d)<br /> 
 Skills_1d = reduce(lambda z, y :z + y, sk_set)<br /> 
 ### Step 9. Convert it from list to dictionary using Zip function.Count the frequency of given skills in 20 pages of job posting.
 ---------------------------------------------------------------------------------------------------------------------------------
