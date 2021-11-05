@@ -1,9 +1,9 @@
 # Web-scraping-job-portal-using-python
-PYTHON SCRAPER FOR JOB PORTAL
+#PYTHON SCRAPER FOR JOB PORTAL
 -------------------------------
 This project enables a user to extract job postings of a job role to store in a CSV file. It saves a jobseekers time by providing summary details of all the requested jobs in a tabular format.
 
-CONTENTS OF THIS FILE
+##CONTENTS OF THIS FILE
 ---------------------
 
  * Tech stack
@@ -15,7 +15,7 @@ CONTENTS OF THIS FILE
  * FAQ
  * Maintainers
 
-TECH STACK
+##TECH STACK
 ----------
 1.Jupyter notebook from Anaconda distribution 
 2.Google chrome 
