@@ -17,70 +17,69 @@ This project enables a user to extract job postings of a job role to store in a 
 
 ## TECH STACK
 ----------
-1.Jupyter notebook from Anaconda distribution 
-2.Google chrome 
-3.Chrome webdriver
+1.Jupyter notebook from Anaconda distribution <br /> 
+2.Google chrome <br /> 
+3.Chrome webdriver<br /> 
 
 ## INSTALLATION
 ------------
 Download and install
-1.chrome webdriver with -https://chromedriver.chromium.org/downloads Additional packages for anaconda distribution 
-2.Selenium: conda install -c conda-forge selenium 
-3.bs4 : conda install -c conda-forge bs4 
-4.Regex : conda install -c conda-forge regex
+1.chrome webdriver with -https://chromedriver.chromium.org/downloads Additional packages for anaconda distribution <br /> 
+2.Selenium: conda install -c conda-forge selenium <br /> 
+3.bs4 : conda install -c conda-forge bs4 <br /> 
+4.Regex : conda install -c conda-forge regex<br /> 
 
 ## CONFIGURATION
 -------------
-Anaconda distribution:-
-	conda version : 4.10.3
-	conda-build version : 3.21.4
-	python version : 3.8.8.final.0
-Google chrome : Version 95.0.4638.54 (Official Build) (64-bit)
-Chrome webdriver : ChromeDriver 96.0.4664.18
-
+Anaconda distribution:-<br /> 
+	conda version : 4.10.3<br /> 
+	conda-build version : 3.21.4<br /> 
+	python version : 3.8.8.final.0<br /> 
+Google chrome : Version 95.0.4638.54 (Official Build) (64-bit)<br /> 
+Chrome webdriver : ChromeDriver 96.0.4664.18<br /> 
 
 ## PROCESS
 --------
 ### Step 1.First import all the required packages
 ---------------------------------------------
 '''
-import csv
-from datetime import datetime
-import requests
-from bs4 import BeautifulSoup
-import time
-from selenium import webdriver
-import re
-import pandas as pd
+import csv<br /> 
+from datetime import datetime<br /> 
+import requests<br /> 
+from bs4 import BeautifulSoup<br /> <br /> 
+import time<br /> 
+from selenium import webdriver<br /> 
+import re<br /> 
+import pandas as pd<br /> 
 '''
 ### Step 2. Get the url for desired job role as per user's input
 ------------------------------------------------------------
 '''
-def get_url(position,page,post):
-    template='https://www.naukri.com/{}-jobs-{}?k={}'
-    url=template.format(position,page,post)
+def get_url(position,page,post):<br /> 
+    template='https://www.naukri.com/{}-jobs-{}?k={}'<br /> 
+    url=template.format(position,page,post)<br /> 
     return url
 '''
 ### Step 3.Use the chromewebdriver, navigate through a page and get job postings with the help of HTML tree on one page. This code scrapes details from 20 pages.
 -------------------------------------------------------------------------------------------------------------------------------------------------------------
 '''
-url=get_url(position,i,post)#pass i for page
-driver = webdriver.Chrome("D:\chromedriver.exe")
-driver.get(url)
-time.sleep(10)
-soup = BeautifulSoup(driver.page_source,'html5lib')
-driver.close()
+url=get_url(position,i,post)#pass i for page<br /> 
+driver = webdriver.Chrome("D:\chromedriver.exe")<br /> 
+driver.get(url)<br /> 
+time.sleep(10)<br /> 
+soup = BeautifulSoup(driver.page_source,'html5lib')<br /> 
+driver.close()<br /> 
 '''
 ### Step 4.Get a job card detail with HTML tree structure.
 -------------------------------------------------------
 '''
-temp = soup.find(class_='list')
-cards = temp.find_all('article',class_='jobTuple bgWhite br4 mb-8')
+temp = soup.find(class_='list')<br /> 
+cards = temp.find_all('article',class_='jobTuple bgWhite br4 mb-8')<br /> 
 '''
 ### Step 5.Use a job card to scrape other attributes of a job, Some of them are listed below.
 -----------------------------------------------------------------------------------------
 '''
-#company name
+#company name<br /> 
 comp_a = cards.find('a',class_='subTitle ellipsis fleft')
 #skills required
 Skill=[]
