@@ -2,8 +2,8 @@
 --------------------------------------------------
 This project enables a user to extract job postings of a job role to store in a CSV file. It saves a jobseekers time by providing summary details of all the requested jobs in a tabular format.<br /> 
 
-## CONTENTS OF THIS FILE
--------------------------
+## CONTENTS
+------------
  * Tech stack<br /> 
  * Installation<br /> 
  * Configuration<br /> 
