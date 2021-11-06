@@ -39,7 +39,7 @@ Chrome webdriver : ChromeDriver 96.0.4664.18<br />
 import csv<br /> 
 from datetime import datetime<br /> 
 import requests<br /> 
-from bs4 import BeautifulSoup<br /> <br /> 
+from bs4 import BeautifulSoup<br /> 
 import time<br /> 
 from selenium import webdriver<br /> 
 import re<br /> 
