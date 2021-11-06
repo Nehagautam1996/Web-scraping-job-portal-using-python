@@ -64,9 +64,9 @@ temp = soup.find(class_='list')<br />
 cards = temp.find_all('article',class_='jobTuple bgWhite br4 mb-8')<br /> 
 ### Step 5.Use a job card to scrape other attributes of a job, Some of them are listed below.
 ---------------------------------------------------------------------------------------------
-#company name<br /> 
+#### company name<br /> 
 comp_a = cards.find('a',class_='subTitle ellipsis fleft')<br /> 
-#skills required<br /> 
+#### skills required<br /> 
 Skill=[]<br /> 
         sk1 = cards.find(class_='tags has-description')<br /> 
         sk2 = sk1.find_all('li',class_='fleft fs12 grey-text lh16 dot')<br /> 
